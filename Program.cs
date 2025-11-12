@@ -6,7 +6,7 @@ namespace Calculator
     {
         static void Main(string[] args)
         {
-            Menu();     
+            Menu();
         }
 
         static void Menu()
@@ -22,9 +22,9 @@ namespace Calculator
             Console.WriteLine();
 
             Console.WriteLine("-------------------------------");
-            short? operacao = short.Parse(Console.ReadLine());
+            byte? operacao = byte.Parse(Console.ReadLine());
 
-            switch(operacao)
+            switch (operacao)
             {
                 case 1:
                     Soma();
@@ -42,12 +42,12 @@ namespace Calculator
                     System.Environment.Exit(0);
                     break;
                 default:
-                Console.WriteLine("Número incorreto! :/");
-                Menu();
-                break;
-            }       
-        }   
-        
+                    Console.WriteLine("Número incorreto! :/");
+                    Menu();
+                    break;
+            }
+        }
+
         static void Soma()
         {
             Console.Clear();
