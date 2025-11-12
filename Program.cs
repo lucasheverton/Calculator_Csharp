@@ -18,7 +18,8 @@ namespace Calculator
             Console.WriteLine("2 - Subtração");
             Console.WriteLine("3 - Multiplicação");
             Console.WriteLine("4 - Divisão");
-            Console.WriteLine("5 - Sair");
+            Console.WriteLine("5 - Potência");
+            Console.WriteLine("6- Sair");
             Console.WriteLine("-------------------------------");
             EscolherOperacao();
         }
@@ -29,89 +30,61 @@ namespace Calculator
 
             switch (operacao)
             {
-                case 1:
-                    Soma();
-                    break;
-                case 2:
-                    Subtracao();
-                    break;
-                case 3:
-                    Multiplicacao();
-                    break;
-                case 4:
-                    Divisao();
-                    break;
-                case 5:
-                    Environment.Exit(0);
-                    break;
-                default:
-                    Menu();
-                    break;
+                case 1: Soma(); break;
+                case 2: Subtracao(); break;
+                case 3: Multiplicacao(); break;
+                case 4: Divisao(); break;
+                case 5: Potencia(); break;
+                case 6: Environment.Exit(0); break;
+                default: Menu(); break;
             }
+        }
+
+        static void Operacao(string tipoDeOperacao)
+        {
+            Console.Clear();
+            Console.WriteLine("Digite o primeiro valor da operação: ");
+            float v1 = float.Parse(Console.ReadLine() ?? "0");
+            Console.WriteLine("Digite o segundo valor da operação: ");
+            float v2 = float.Parse(Console.ReadLine() ?? "0");
+            float result = 0;
+
+            if (tipoDeOperacao == "soma") result = v1 + v2;
+            if (tipoDeOperacao == "subtracao") result = v1 - v2;
+            if (tipoDeOperacao == "multiplicacao") result = v1 * v2;
+            if (tipoDeOperacao == "divisao") result = v1 / v2;
+            if (tipoDeOperacao == "potencia") result = (float)Math.Pow(v1, v2);
+
+            Console.WriteLine();
+
+            Console.WriteLine($"O valor da operação {tipoDeOperacao} é: {result}");
+            Console.ReadKey();
+            Menu();
         }
 
         static void Soma()
         {
-            Console.Clear();
-            Console.WriteLine("Digite o primeiro valor da operação: ");
-            float? v1 = float.Parse(Console.ReadLine() ?? "0");
-            Console.WriteLine("Digite o segundo valor da operação: ");
-            float? v2 = float.Parse(Console.ReadLine() ?? "0");
-
-            float? result = v1 + v2;
-            Console.WriteLine();
-
-            Console.WriteLine($"O valor da operação soma é: {result}");
-            Console.ReadKey();
-            Menu();
+            Operacao("soma");
         }
 
         static void Subtracao()
         {
-            Console.Clear();
-            Console.WriteLine("Digite o primeiro valor da operação: ");
-            float? v1 = float.Parse(Console.ReadLine() ?? "0");
-            Console.WriteLine("Digite o segundo valor da operação: ");
-            float? v2 = float.Parse(Console.ReadLine() ?? "0");
-
-            float? result = v1 - v2;
-            Console.WriteLine();
-
-            Console.WriteLine($"O valor da operação subtração é: {result}");
-            Console.ReadKey();
-            Menu();
+            Operacao("subtracao");
         }
 
         static void Multiplicacao()
         {
-            Console.Clear();
-            Console.WriteLine("Digite o primeiro valor da operação: ");
-            float? v1 = float.Parse(Console.ReadLine() ?? "0");
-            Console.WriteLine("Digite o segundo valor da operação: ");
-            float? v2 = float.Parse(Console.ReadLine() ?? "0");
-
-            float? result = v1 * v2;
-            Console.WriteLine();
-
-            Console.WriteLine($"O valor da operação multiplicação é: {result}");
-            Console.ReadKey();
-            Menu();
+            Operacao("multiplicacao");
         }
 
         static void Divisao()
         {
-            Console.Clear();
-            Console.WriteLine("Digite o primeiro valor da operação: ");
-            float? v1 = float.Parse(Console.ReadLine() ?? "0");
-            Console.WriteLine("Digite o segundo valor da operação: ");
-            float? v2 = float.Parse(Console.ReadLine() ?? "0");
+            Operacao("divisao");
+        }
 
-            float? result = v1 / v2;
-            Console.WriteLine();
-
-            Console.WriteLine($"O valor da operação divisão é: {result}");
-            Console.ReadKey();
-            Menu();
+        static void Potencia()
+        {
+            Operacao("potencia");
         }
     }
 }
