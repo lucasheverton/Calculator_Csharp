@@ -19,10 +19,13 @@ namespace Calculator
             Console.WriteLine("3 - Multiplicação");
             Console.WriteLine("4 - Divisão");
             Console.WriteLine("5 - Sair");
-            Console.WriteLine();
-
             Console.WriteLine("-------------------------------");
-            byte? operacao = byte.Parse(Console.ReadLine());
+            EscolherOperacao();
+        }
+
+        static void EscolherOperacao()
+        {
+            byte operacao = byte.Parse(Console.ReadLine() ?? "0");
 
             switch (operacao)
             {
@@ -39,10 +42,9 @@ namespace Calculator
                     Divisao();
                     break;
                 case 5:
-                    System.Environment.Exit(0);
+                    Environment.Exit(0);
                     break;
                 default:
-                    Console.WriteLine("Número incorreto! :/");
                     Menu();
                     break;
             }
@@ -52,9 +54,9 @@ namespace Calculator
         {
             Console.Clear();
             Console.WriteLine("Digite o primeiro valor da operação: ");
-            float? v1 = float.Parse(Console.ReadLine());
+            float? v1 = float.Parse(Console.ReadLine() ?? "0");
             Console.WriteLine("Digite o segundo valor da operação: ");
-            float? v2 = float.Parse(Console.ReadLine());
+            float? v2 = float.Parse(Console.ReadLine() ?? "0");
 
             float? result = v1 + v2;
             Console.WriteLine();
@@ -68,9 +70,9 @@ namespace Calculator
         {
             Console.Clear();
             Console.WriteLine("Digite o primeiro valor da operação: ");
-            float? v1 = float.Parse(Console.ReadLine());
+            float? v1 = float.Parse(Console.ReadLine() ?? "0");
             Console.WriteLine("Digite o segundo valor da operação: ");
-            float? v2 = float.Parse(Console.ReadLine());
+            float? v2 = float.Parse(Console.ReadLine() ?? "0");
 
             float? result = v1 - v2;
             Console.WriteLine();
@@ -84,9 +86,9 @@ namespace Calculator
         {
             Console.Clear();
             Console.WriteLine("Digite o primeiro valor da operação: ");
-            float? v1 = float.Parse(Console.ReadLine());
+            float? v1 = float.Parse(Console.ReadLine() ?? "0");
             Console.WriteLine("Digite o segundo valor da operação: ");
-            float? v2 = float.Parse(Console.ReadLine());
+            float? v2 = float.Parse(Console.ReadLine() ?? "0");
 
             float? result = v1 * v2;
             Console.WriteLine();
@@ -100,9 +102,9 @@ namespace Calculator
         {
             Console.Clear();
             Console.WriteLine("Digite o primeiro valor da operação: ");
-            float? v1 = float.Parse(Console.ReadLine());
+            float? v1 = float.Parse(Console.ReadLine() ?? "0");
             Console.WriteLine("Digite o segundo valor da operação: ");
-            float? v2 = float.Parse(Console.ReadLine());
+            float? v2 = float.Parse(Console.ReadLine() ?? "0");
 
             float? result = v1 / v2;
             Console.WriteLine();
