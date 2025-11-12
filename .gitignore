@@ -1,6 +1,6 @@
 # Arquivos de build do .NET
-bin/
-obj/
+bin
+obj
 
 # VS Code
 .vscode/
